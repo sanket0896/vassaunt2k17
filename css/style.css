@@ -43,13 +43,33 @@ div.event.full{
 
 }
 
-div.event.z-index{
+.z-index{
 	z-index: 9999;
+}
+
+div.event.panel1{
+	left: 0;
+	background: green url(/vassaunt2k17/images/img-1.jpg) no-repeat center center;
+}
+
+div.event.panel2{
+	left: 25%;
+	background: blue url(/vassaunt2k17/images/img-2.jpg) no-repeat center center;
+}
+
+div.event.panel3{
+	left: 50%;
+	background: red url(/vassaunt2k17/images/img-3.jpg) no-repeat center center;
+}
+
+div.event.panel4{
+	left: 75%;
+	background: yellow url(/vassaunt2k17/images/img-4.jpg) no-repeat center center;
 }
 
 div.close-button{
 	font-size: 72px;
-	position: absolute;
+	position: fixed;
 	top: 20px;
 	right: 50px;
 	/*border: 5px solid black;*/
@@ -68,12 +88,17 @@ div.event-list li{
 	text-decoration: none;
 	list-style: none;
 	margin-bottom: 1rem;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	border:2px solid transparent;
+	text-align: center;
 }
 
 div.event-list li:hover{
 	cursor: pointer;
+	border:2px solid rgba(0,0,0,0.3);
+}
+
+div.event-list li.selected{
 	border:2px solid black;
 }
 
@@ -111,4 +136,55 @@ div.event-description::-webkit-scrollbar-thumb{
 	border-top: 2px solid transparent;
 	border-bottom: 2px solid transparent;
 	width: 3px;
+}
+@media only screen and (max-width: 767px) {
+
+	div.event.panel{
+	height: 25%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	bottom: auto;
+	}
+
+	div.event.panel1{
+		top: 0;
+		left: 0;
+	}
+
+	div.event.panel2{
+		top: 25%;
+		left: 0;
+	}
+
+	div.event.panel3{
+		top: 50%;
+		left: 0;
+	}
+
+	div.event.panel4{
+		top: 75%;
+		left: 0;
+	}
+
+	div.event-list{
+	left: 0;
+	top: 10%;
+	font-size: 1.5rem;
+	}
+
+	div.close-button{
+		font-size: 48px;
+		top: 0;
+		right: 20px;
+	}
+	div.event-description{
+		left: 35%;
+		top: 15%;
+		right: 5%;
+		bottom: 5%;
+		font-size: 1.5rem;
+		text-align: center; 
+		padding-right: 0;
+	}
 }

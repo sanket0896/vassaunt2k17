@@ -1,37 +1,53 @@
 $('document').ready(function() {
 
-	var isFull=false,ck=0,dep='div.event.panel';
+	var isFull,thisPanel,thisItem,selectedItem,selectedDescription;
 
-	$(dep).click(function() {
+	isFull=false;
+	thisItem='div.event.full div.event-list li.item1';
+	selectedDescription='div.event.full div.event-description div.item1';
+
+	$('div.event.panel').click(function() {
 		if(!isFull){
-			$(this).addClass("full z-index");
-			$(this).one("transitionend", function() {
-				$('div.event-content-wrapper.hidden')
+			t=false;
+			thisPanel=$(this);
+			thisPanel.addClass("full z-index");
+			thisPanel.one("transitionend", function() {
+				$('div.event.panel.full div.event-content-wrapper.hidden')
 					.addClass("visible");
 				});
 
-
+			$(selectedDescription).removeClass("visible");
+			$(thisItem).removeClass("selected");
+			thisItem='div.event.full div.event-list li.item1';
+			selectedDescription='div.event.full div.event-description div.item1';
+			$(thisItem).addClass("selected");
+			$(selectedDescription).addClass("visible");
+			
 			isFull=true;
 		} 
-
-		$('div.close-button').click(function() {
+		$('div.event.panel.full div.close-button').on("click",function() {
+			thisPanel.removeClass("full");
 			$('div.event-content-wrapper.hidden')
-					.removeClass("visible");
-			$(dep).removeClass("full");
-			$(dep).one("transitionend", function() {
-				$(dep).removeClass("z-index");
+			.removeClass("visible");
+			thisPanel.one("transitionend", function() {
+				
+				thisPanel.removeClass("z-index");
 				isFull=false;
 			});
+			
 		});
 
-	});
 
-
-
-		$('div.event.full div.event-list li.item1').one("click",function() {
-				console.log("Clicked"+(++ck));
-				$('div.event.full div.event-description .item1')
-					.addClass("visible");
+		$('div.event.full div.event-list li').on("click",function() {
+				$(selectedDescription).removeClass("visible");
+				$(thisItem).removeClass("selected");
+				thisItem=$(this);
+				selectedItem=thisItem.attr("class");
+				thisItem.addClass("selected");
+				selectedDescription='div.event.full div.event-description div.'+selectedItem;
+				$(selectedDescription).addClass("visible");
 			});
+
+	});
 
 });
