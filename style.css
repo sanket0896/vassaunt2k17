@@ -39,7 +39,6 @@ div.event.full{
 	top: 0 !important;
 	bottom: 0 !important;
 	height: 100% !important;
-	cursor: auto;
 
 }
 
@@ -47,15 +46,15 @@ div.event.z-index{
 	z-index: 9999;
 }
 
-div.close-button{
-	font-size: 72px;
+a.close{
+	height: 25px;
+	width: 25px;
+	font-size: 2rem;
 	position: absolute;
-	top: 20px;
-	right: 50px;
-	/*border: 5px solid black;*/
-	/*border-radius: 50%;*/
+	top: 30px;
+	right: 100px;
+	background: white;
 	text-align: center;
-	cursor: pointer;
 }
 
 div.event-list{
@@ -69,12 +68,7 @@ div.event-list li{
 	list-style: none;
 	margin-bottom: 1rem;
 	font-size: 2rem;
-	border:2px solid transparent;
-}
 
-div.event-list li:hover{
-	cursor: pointer;
-	border:2px solid black;
 }
 
 div.event-description{
@@ -99,16 +93,15 @@ div.event-description{
 }
 
 div.event-description::-webkit-scrollbar{
-	width: 3px;
+	width: 5px;
 }
 
 div.event-description::-webkit-scrollbar-track{
-	background: transparent;
+	background: green;
 }
 
 div.event-description::-webkit-scrollbar-thumb{
 	background: #000;
-	border-top: 2px solid transparent;
-	border-bottom: 2px solid transparent;
-	width: 3px;
+	border-top: 100px solid green;
+	border-bottom: 100px solid green;
 }
