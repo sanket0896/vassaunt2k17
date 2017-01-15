@@ -22,7 +22,7 @@ $('document').ready(function() {
 			selectedDescription='div.event.full div.event-description div.item1';
 			$(thisItem).addClass("selected");
 			$(selectedDescription).addClass("visible");
-			
+
 			isFull=true;
 		} 
 		$('div.event.panel.full div.close-button').on("click",function() {
@@ -43,6 +43,7 @@ $('document').ready(function() {
 				$(thisItem).removeClass("selected");
 				thisItem=$(this);
 				selectedItem=thisItem.attr("class");
+				console.log("clicked on "+selectedItem);
 				thisItem.addClass("selected");
 				selectedDescription='div.event.full div.event-description div.'+selectedItem;
 				$(selectedDescription).addClass("visible");

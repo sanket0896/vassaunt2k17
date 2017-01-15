@@ -32,6 +32,7 @@ div.event.panel{
 	transition: all .5s;
 }
 
+
 div.event.full{
 	width: 100% !important;
 	left: 0 !important;
@@ -49,22 +50,22 @@ div.event.full{
 
 div.event.panel1{
 	left: 0;
-	background: green url(/vassaunt2k17/images/img-1.jpg) no-repeat center center;
+	background: transparent url(/vassaunt2k17/images/img-1.jpg) no-repeat center center;
 }
 
 div.event.panel2{
 	left: 25%;
-	background: blue url(/vassaunt2k17/images/img-2.jpg) no-repeat center center;
+	background: transparent url(/vassaunt2k17/images/img-2.jpg) no-repeat center center;
 }
 
 div.event.panel3{
 	left: 50%;
-	background: red url(/vassaunt2k17/images/img-3.jpg) no-repeat center center;
+	background: transparent url(/vassaunt2k17/images/img-3.jpg) no-repeat center center;
 }
 
 div.event.panel4{
 	left: 75%;
-	background: yellow url(/vassaunt2k17/images/img-4.jpg) no-repeat center center;
+	background: transparent url(/vassaunt2k17/images/img-4.jpg) no-repeat center center;
 }
 
 div.close-button{
