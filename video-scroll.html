@@ -31,44 +31,58 @@
 
 		video{
 			position:absolute;
-	z-index:0;
+			z-index:-1;
 		}
 
 		video.vid{
 			width: 100%;
 		}
 
-		.stuck{
-			position: fixed !important;
-			top: 1.5vh !important;
-			left: 25px !important;
+		.about-us-heading{
+			font-size: 48px;
+			margin-top: 20px;
+			text-align: center;
+		}
+
+		.about-us-description{
+			font-size: 32px;
+			margin-top: 30px;
+			text-align: center;
 		}
 	</style>
 	<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
 	<script>
-	$(document).ready(function(){
-		var video = $('#web-video')[0];
-		console.log(video);
-video.play();
+		$(document).ready(function(){
 
-		$(window).scroll(function(){
-			scrollPosition = $(document).scrollTop();
-			console.log(scrollPosition);
-			time=(scrollPosition / ($(document).height() - $("window").height())) *5;
-		console.log(time);
-		if(scrollPosition>400){
-			video.currentTime=time;
-			video.pause();
-			// $('.video-wrapper').addClass("stuck");
-			
-			console.log("playing");
-		} 
-		// else{
-		// 	$('video').removeClass("stuck");
-		// }
+			var video,scrollPosition,winHeight,docHeight,vidHeight,vidOffset,playTime;
 
+			video = $('#web-video')[0];
+			winHeight = $(window).height();
+			docHeight = $(document).height();
+			vidHeight = $('#video-container').height();
+			vidOffset = $('#web-video').offset().top;
+
+			video.play();
+
+			$(window).scroll(function(){
+				
+				scrollPosition = $(window).scrollTop();
+				playTime=((scrollPosition + winHeight - vidOffset) / winHeight) *2;
+				
+				video.pause();
+	
+				if((scrollPosition + winHeight >= vidOffset) && (scrollPosition < docHeight - vidOffset )){
+					
+					video.currentTime = playTime;
+
+					video.pause();
+					// $('.video-wrapper').addClass("stuck");
+				} 
+			// else{
+			// 	$('video').removeClass("stuck");
+			// }
+			});
 		});
-	});
 	</script>
 </head>
 <body>
@@ -78,6 +92,8 @@ video.play();
  <video class="vid" id="web-video" muted>
  <source src="/vassaunt2k17/images/vid-2.mp4" type="video/mp4">Video not supported
  </video>
+ <h2 class="about-us-heading">About Us</h2>
+ <p class="about-us-description">Vassaunt is the annual cultural festival of Veer Surendra Sai University of Technology.</p>
  </div>
  </div>
  <div class="head"></div>
