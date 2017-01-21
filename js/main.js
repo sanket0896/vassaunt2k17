@@ -1,6 +1,8 @@
 $('document').ready(function() {
 
-	var isFull,thisPanel,thisItem,selectedItem,selectedDescription;
+	var isFull,thisPanel,thisItem,selectedItem,selectedDescription,scrollPosition,time;
+
+
 
 	isFull=false;
 	thisItem='div.event.full div.event-list li.item1';
@@ -11,6 +13,7 @@ $('document').ready(function() {
 			t=false;
 			thisPanel=$(this);
 			thisPanel.addClass("full z-index");
+			$('body').addClass("hide-overflow");
 			thisPanel.one("transitionend", function() {
 				$('div.event.panel.full div.event-content-wrapper.hidden')
 					.addClass("visible");
@@ -27,6 +30,7 @@ $('document').ready(function() {
 		} 
 		$('div.event.panel.full div.close-button').on("click",function() {
 			thisPanel.removeClass("full");
+			$('body').removeClass("hide-overflow");
 			$('div.event-content-wrapper.hidden')
 			.removeClass("visible");
 			thisPanel.one("transitionend", function() {
@@ -48,7 +52,7 @@ $('document').ready(function() {
 				selectedDescription='div.event.full div.event-description div.'+selectedItem;
 				$(selectedDescription).addClass("visible");
 			});
-
 	});
+
 
 });
