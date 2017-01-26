@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Landing</title>
+	<style>
+
+		8{
+			box-sizing: border-box;
+		}
+		html,body{
+			height: 100%;
+			width: 100%;
+		}
+		.svg{
+			background-size: contain;
+			background: url("/vassaunt2k17/images/gate.svg");
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			position: fixed;
+			top: 0%;
+			left: 0%;
+			padding-bottom: 500px;
+			transform: scale(0.5);
+			transition: all .5s;
+		}
+		.one{
+			min-height: 1000px;
+		}
+	</style>
+    <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var scroll,addWidth;
+			addWidth=0.49;
+			scroll=0;
+			$(window).scroll(function(){
+				scroll+=0.8;
+				addWidth+=0.01;
+				$(".svg").css({
+					transform: "scale("+addWidth+")translateY(-"+scroll+"px)"
+				});
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<div class="svg"></div>
+	<div class="one"></div>
+</body>
+</html>
