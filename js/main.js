@@ -1,8 +1,8 @@
 $('document').ready(function() {
 
-	var isFull,thisPanel,thisItem,selectedItem,selectedDescription,scrollPosition,time;
+	/***************** For Events Page *****************/
 
-
+	var isFull,thisPanel,thisItem,selectedItem,selectedDescription;
 
 	isFull=false;
 	thisItem='div.event.full div.event-list li.item1';
@@ -54,5 +54,77 @@ $('document').ready(function() {
 			});
 	});
 
+	/***************** For About Us Page *****************/
+
+	var video,winHeight,docHeight,vidHeight,vidOffset,playTime,scrollPosition;
+
+	video = $('#web-video')[0];
+	winHeight = $(window).height();
+	docHeight = $(document).height();
+	vidHeight = $('#video-container').height();
+	vidOffset = $('#web-video').offset().top;
+
+	video.play();
+
+	$(window).scroll(function(){
+		
+		scrollPosition = $(window).scrollTop();
+		playTime=((scrollPosition + winHeight - vidOffset) / winHeight) *2;
+		
+		video.pause();
+
+		if((scrollPosition + winHeight >= vidOffset) && (scrollPosition < docHeight - vidOffset )){
+			
+			video.currentTime = playTime;
+
+			video.pause();
+		} 
+	});
+
+	/***************** For Scroll Locking a Page *****************
+
+	var locked,lastScroll,reached,scrolled,ofset;
+
+	locked = false;
+	lastScroll = -1;
+	 var $div = $('div.scroll-lock');
+	ofset = $div.offset().top;
+
+	$(window).scroll(function(){
+
+		scrolled=$(window).scrollTop();
+		console.log("scrolled = "+scrolled);
+	    reached=scrolled+ (winHeight/2);
+	    console.log("reached = "+reached);
+	    console.log("offset = "+ofset);
+	    if(reached>= ofset){
+	    	locked=true;
+	    }
+
+	$('body').bind('mousewheel', function(e) { // on scroll
+
+
+	 if (locked) {
+
+		    lastScroll = $div.scrollTop();
+
+		    
+		    $div.scrollTop($div.scrollTop() 
+		                    - e.originalEvent.wheelDelta);
+		console.log("lastScroll = "+lastScroll);
+		console.log("scrollTop = "+$div.scrollTop());
+		    return false; 
+		}
+
+		else if($div.scrollTop()==lastScroll && locked){
+			locked=false;
+			// $div.scrollTop(0);
+			lastScroll = -1;  
+			return true;
+		}
+		});
+	});
+
+   ****************************************************************/
 
 });

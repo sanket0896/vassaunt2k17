@@ -37,8 +37,8 @@ div.event.full{
 	width: 100% !important;
 	left: 0 !important;
 	right: 0 !important;
-	top: 0 !important;
-	bottom: 0 !important;
+	/*top: 0 !important;
+	bottom: 0 !important;*/
 	height: 100% !important;
 	cursor: auto;
 
@@ -142,6 +142,52 @@ div.event-description::-webkit-scrollbar-thumb{
 .hide-overflow{
 	overflow: hidden;
 }
+
+div.video-wrapper{
+	height: 60%;
+    position: relative;
+}
+
+div#video-container{
+	position: absolute;
+	top:0%;
+	left:0%;
+	height:100%;
+	width:100%;
+	overflow: hidden;
+}
+
+video{
+	position:absolute;
+	z-index:-1;
+}
+
+video.vid{
+	width: 100%;
+}
+
+.about-us-heading{
+	font-size: 48px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.about-us-description{
+	font-size: 32px;
+	margin-top: 30px;
+	text-align: center;
+}
+
+.scroll-lock{
+	height:150px;
+	width: 300px;
+	overflow-y: auto;
+	border: 2px solid grey;
+	margin-left: 200px;
+	margin-top: 300px;
+}
+
+/************************ For screen sizes below 767px *********************************/
 
 @media only screen and (max-width: 767px) {
 
